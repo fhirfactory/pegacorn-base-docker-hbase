@@ -24,7 +24,7 @@ RUN apt-get remove --purge -y $HBASE_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
 RUN apt-get install $minimal_apt_get_args $HBASE_RUN_PACKAGES
 # . /build/cleanup.sh
 RUN rm -rf /tmp/* /var/tmp/*
-apt-get clean
+RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN rm -rf /build
