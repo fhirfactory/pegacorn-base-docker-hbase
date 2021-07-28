@@ -4,11 +4,11 @@ FROM fhirfactory/pegacorn-base-hadoop:1.0.0
 
 COPY *.sh /build/
 
-RUN ls -la /build/
-
-RUN whoami
+#commented out statements for debugging purposes
+#RUN ls -la /build/
+#RUN whoami
 RUN chmod -R 711 /build/
-RUN ls -la /build/
+#RUN ls -la /build/
 
 ENV HBASE_VERSION 2.2.4
 
