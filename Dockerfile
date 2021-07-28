@@ -14,7 +14,18 @@ ENV HBASE_VERSION 2.2.4
 
 RUN /build/prepare-hbase.sh
 RUN cd /opt/hbase && /build/build-hbase.sh
-RUN cd / && /build/cleanup-hbase.sh 
+
+#line by line use of the cleanup-hbase.sh
+RUN . /build/config-hbase.sh
+RUN AUTO_ADDED_PACKAGES=`apt-mark showauto`
+RUN apt-get remove --purge -y $HBASE_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
+# Install the run-time dependencies
+RUN apt-get install $minimal_apt_get_args $HBASE_RUN_PACKAGES
+# . /build/cleanup.sh
+RUN rm -rf /tmp/* /var/tmp/*
+apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN rm -rf /build
 
 VOLUME /data
