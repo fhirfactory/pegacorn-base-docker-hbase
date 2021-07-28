@@ -7,7 +7,7 @@ COPY *.sh /build/
 RUN ls -la /build/
 
 RUN whoami
-RUN chmod -r 700 /build/
+RUN chmod -R 711 /build/
 RUN ls -la /build/
 
 ENV HBASE_VERSION 2.2.4
