@@ -16,6 +16,7 @@ RUN /build/prepare-hbase.sh
 RUN cd /opt/hbase && /build/build-hbase.sh
 
 #line by line use of the cleanup-hbase.sh
+RUN cd /
 RUN . /build/config-hbase.sh
 RUN AUTO_ADDED_PACKAGES=`apt-mark showauto`
 RUN apt-get remove --purge -y $HBASE_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
