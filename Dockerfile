@@ -4,6 +4,8 @@ FROM fhirfactory/pegacorn-base-hadoop:1.0.0
 
 COPY *.sh /build/
 
+RUN ls -la /build/
+
 ENV HBASE_VERSION 2.2.4
 
 RUN /build/prepare-hbase.sh
