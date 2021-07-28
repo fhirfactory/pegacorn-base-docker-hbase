@@ -1,5 +1,7 @@
 FROM fhirfactory/pegacorn-base-hadoop:1.0.0
 
+#Taken from https://hub.docker.com/r/dajobe/hbase/
+
 COPY *.sh /build/
 
 ENV HBASE_VERSION 2.2.4
