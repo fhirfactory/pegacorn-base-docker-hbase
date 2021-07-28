@@ -4,9 +4,10 @@ COPY *.sh /build/
 
 ENV HBASE_VERSION 2.2.4
 
-RUN /build/prepare-hbase.sh && \
-    cd /opt/hbase && /build/build-hbase.sh \
-    cd / && /build/cleanup-hbase.sh && rm -rf /build
+RUN /build/prepare-hbase.sh
+RUN cd /opt/hbase && /build/build-hbase.sh
+RUN cd / && /build/cleanup-hbase.sh 
+RUN rm -rf /build
 
 VOLUME /data
 
