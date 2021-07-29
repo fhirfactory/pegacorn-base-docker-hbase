@@ -40,7 +40,7 @@ ADD ./replace-hostname /opt/replace-hostname
 ADD ./hbase-server /opt/hbase-server
 
 #Testing whether this allows the container to start up
-RUN chmod -R 711 /opt/hbase-server
+#RUN chmod -R 711 /opt/hbase-server
 
 # REST API
 EXPOSE 8080
