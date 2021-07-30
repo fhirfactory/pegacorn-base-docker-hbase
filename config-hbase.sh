@@ -11,9 +11,9 @@ HBASE_DIST="http://archive.apache.org/dist/hbase"
 # Prevent initramfs updates from trying to run grub and lilo.
 export INITRD=no
 export DEBIAN_FRONTEND=noninteractive
-echo $JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-echo $JAVA_HOME
+#looks like this is set earlier - nto needed
+#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+#echo $JAVA_HOME
 minimal_apt_get_args='-y --no-install-recommends'
 
 
