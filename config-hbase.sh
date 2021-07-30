@@ -28,4 +28,4 @@ HBASE_BUILD_PACKAGES="curl"
 #HBASE_BUILD_PACKAGES="$HBASE_BUILD_PACKAGES "
 
 ## Run time dependencies ##
-HBASE_RUN_PACKAGES="openjdk-8-jre-headless"
+HBASE_RUN_PACKAGES="openjdk-11-jre-headless"
