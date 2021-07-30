@@ -12,7 +12,7 @@ pr:
 variables:
 # Could potentially parse this from  $(Build.Repository.Name) = fhirfactory/pegacorn
 #  dockerImageName: '$(Build.Repository.Name)'
-  dockerImageName: 'pegacorn-base-hbase'
+  dockerImageName: 'fhirfactory/pegacorn-base-hbase'
   projectVersion: '1.0.0-snapshot'
 
 pool:
