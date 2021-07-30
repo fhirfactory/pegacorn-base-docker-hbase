@@ -3,7 +3,7 @@
 
   <property>
      <name>hbase.zookeeper.quorum</name>
-     <value>fhirfactore/pegacorn-base-hbase</value>
+     <value>"fhirfactory/pegacorn-base-hbase"</value>
   </property>
   <property>
     <name>hbase.rootdir</name>
@@ -12,12 +12,12 @@
 
   <property>
     <name>hbase.master.info.bindAddress</name>
-    <value>fhirfactoro/pegacorn-base-hbase</value>
+    <value>"fhirfactory/pegacorn-base-hbase"</value>
   </property>
 
   <property>
     <name>hbase.regionserver.info.bindAddress</name>
-    <value>fhirfactory/pegacorn-base-hbase</value>
+    <value>"fhirfactory/pegacorn-base-hbase"</value>
   </property>
 
 </configuration>
