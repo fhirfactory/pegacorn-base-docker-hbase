@@ -11,7 +11,8 @@ declare -a files=(
 	'/opt/hbase/conf/hbase-site.xml'
 	'/opt/hbase/conf/zoo.cfg'
 )
-
+echo ${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}
+echo ${HOSTNAME}
 # Optional custom hostname replacement
 REPLACEMENT_HOSTNAME=${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}
 
