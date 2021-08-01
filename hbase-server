@@ -6,7 +6,9 @@
 logs_dir=/data/logs
 
 # Prepare environment
-/opt/replace-hostname
+#/opt/replace-hostname
+echo "runs with hostname $HOSTNAME"
+
 mkdir -p $logs_dir /data/hbase /data/run
 
 # Thrift server (background)

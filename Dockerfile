@@ -10,7 +10,7 @@ COPY *.sh /build/
 RUN chmod -R 711 /build/
 #RUN ls -la /build/
 
-ENV HBASE_VERSION 2.2.4
+ENV HBASE_VERSION 2.3.5
 
 RUN /build/prepare-hbase.sh
 RUN cd /opt/hbase && /build/build-hbase.sh
