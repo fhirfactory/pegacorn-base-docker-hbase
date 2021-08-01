@@ -43,8 +43,6 @@ ADD ./hbase-server /opt/hbase-server
 RUN chmod -R 711 /opt/hbase-server
 RUN chmod -R 711 /opt/replace-hostname
 
-RUN echo "$HOSTNAME"
-
 # REST API
 EXPOSE 8080
 # REST Web UI at :8085/rest.jsp

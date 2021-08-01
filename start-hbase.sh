@@ -8,7 +8,7 @@
 #
 
 IMAGE_NAME="dajobe/hbase"
-CONTAINER_NAME="hbase-docker"
+CONTAINER_NAME="pegacorn-base-hbase"
 
 program=$(basename "$0")
 

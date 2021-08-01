@@ -5,9 +5,10 @@
 
 logs_dir=/data/logs
 
+echo "ye olde hostname $HOSTNAME"
 # Prepare environment
-#/opt/replace-hostname
-echo "runs with hostname $HOSTNAME"
+/opt/replace-hostname
+echo "replacement hostname $HOSTNAME"
 
 mkdir -p $logs_dir /data/hbase /data/run
 
