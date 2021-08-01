@@ -11,11 +11,11 @@ declare -a files=(
 	'/opt/hbase/conf/hbase-site.xml'
 	'/opt/hbase/conf/zoo.cfg'
 )
-echo Hostname hbase docker - ${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}
-echo Hostname - ${HOSTNAME}
+echo "${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}"
+echo "${HOSTNAME}"
 # Optional custom hostname replacement
 REPLACEMENT_HOSTNAME=${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}
-echo Hostname replacement - ${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}
+echo "${HBASE_DOCKER_HOSTNAME:-$HOSTNAME}"
 for file in "${files[@]}"; do
 	if [ -f "${file}.bak" ]; then
 		cp "${file}.bak" "${file}"
