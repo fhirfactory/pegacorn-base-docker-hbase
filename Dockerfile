@@ -1,4 +1,5 @@
 FROM debian:buster
+
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       openjdk-11-jdk \
       net-tools \
@@ -6,20 +7,24 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
       netcat \
       gnupg \
       libsnappy-dev \
+      nano \
     && rm -rf /var/lib/apt/lists/*
+      
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
+ENV HBASE_VERSION 2.3.6
+ENV HBASE_URL http://www.apache.org/dist/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz
+RUN set -x \
+    && curl -fSL "$HBASE_URL" -o /tmp/hbase.tar.gz \
+    && curl -fSL "$HBASE_URL.asc" -o /tmp/hbase.tar.gz.asc \
+    && tar -xvf /tmp/hbase.tar.gz -C /opt/ \
+    && rm /tmp/hbase.tar.gz*
 
-RUN apt-get update && apt-get install nano
-RUN apt-get install -y --no-install-recommends curl
-RUN cd /opt && curl -SL http://archive.apache.org/dist/hbase/2.4.5/hbase-2.4.5-bin.tar.gz | tar -x -z && mv hbase-2.4.5 hbase
+RUN ln -s /opt/hbase-$HBASE_VERSION/conf /etc/hbase
+RUN mkdir /opt/hbase-$HBASE_VERSION/logs
 
-#Zookeeper
-EXPOSE 2181
-# REST API
-EXPOSE 8080
-# REST Web UI at :8085/rest.jsp
-EXPOSE 8085
-#Direct connect with Java
-EXPOSE 16000
-#Master web ui
-EXPOSE 16010
+RUN mkdir /hadoop-data
+
+ENV HBASE_PREFIX=/opt/hbase-$HBASE_VERSION
+ENV HBASE_CONF_DIR=/etc/hbase
+ENV USER=root
+ENV PATH $HBASE_PREFIX/bin/:$PATH
