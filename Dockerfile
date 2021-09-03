@@ -26,5 +26,5 @@ RUN mkdir /hadoop-data
 
 ENV HBASE_PREFIX=/opt/hbase-$HBASE_VERSION
 ENV HBASE_CONF_DIR=/etc/hbase
-ENV USER=root
+ENV USER=jboss
 ENV PATH $HBASE_PREFIX/bin/:$PATH
